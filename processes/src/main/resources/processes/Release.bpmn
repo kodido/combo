@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://activiti.org/bpmn20" id="adhoc-definitions">
+  <process id="io.github.kodido.processes.milestone" name="Milestone Release Process" isExecutable="true">
+    <endEvent id="theEnd"></endEvent>
+    <startEvent id="start" name="Start"></startEvent>
+    <userTask id="transportOrTagTask" name="Branch to ms/&lt;version&gt;"></userTask>
+    <sequenceFlow id="flow33" sourceRef="start" targetRef="usertask1"></sequenceFlow>
+    <userTask id="usertask1" name="Find compatible commits"></userTask>
+    <userTask id="milestoneVersion" name="SNAPSHOT -&gt; ms"></userTask>
+    <sequenceFlow id="flow42" sourceRef="usertask1" targetRef="transportOrTagTask"></sequenceFlow>
+    <sequenceFlow id="flow43" sourceRef="transportOrTagTask" targetRef="milestoneVersion"></sequenceFlow>
+    <sequenceFlow id="flow44" sourceRef="milestoneVersion" targetRef="theEnd"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_io.github.kodido.processes.milestone">
+    <bpmndi:BPMNPlane bpmnElement="io.github.kodido.processes.milestone" id="BPMNPlane_io.github.kodido.processes.milestone">
+      <bpmndi:BPMNShape bpmnElement="theEnd" id="BPMNShape_theEnd">
+        <omgdc:Bounds height="35.0" width="35.0" x="570.0" y="55.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="35.0" width="35.0" x="61.0" y="55.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="transportOrTagTask" id="BPMNShape_transportOrTagTask">
+        <omgdc:Bounds height="58.0" width="105.0" x="288.0" y="44.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="61.0" width="105.0" x="152.0" y="42.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="milestoneVersion" id="BPMNShape_milestoneVersion">
+        <omgdc:Bounds height="58.0" width="105.0" x="417.0" y="44.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow33" id="BPMNEdge_flow33">
+        <omgdi:waypoint x="96.0" y="72.0"></omgdi:waypoint>
+        <omgdi:waypoint x="152.0" y="72.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow42" id="BPMNEdge_flow42">
+        <omgdi:waypoint x="257.0" y="72.0"></omgdi:waypoint>
+        <omgdi:waypoint x="288.0" y="73.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow43" id="BPMNEdge_flow43">
+        <omgdi:waypoint x="393.0" y="73.0"></omgdi:waypoint>
+        <omgdi:waypoint x="417.0" y="73.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow44" id="BPMNEdge_flow44">
+        <omgdi:waypoint x="522.0" y="73.0"></omgdi:waypoint>
+        <omgdi:waypoint x="570.0" y="72.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
